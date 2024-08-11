@@ -1,5 +1,9 @@
 import { Menu, type MenuProps } from "antd"
-import { useState } from "react"
+
+type NavProps = {
+  currentNavItem: string
+  setCurrentNavItem: (item: string) => void
+}
 
 type MenuItem = Required<MenuProps>["items"][number]
 
@@ -18,13 +22,11 @@ const menuItems: MenuItem[] = [
   },
 ]
 
-export const NavBar = () => {
-  const [currentItem, setCurrentItem] = useState("about")
-
+export const NavBar = (props: NavProps) => {
   return (
     <Menu
-      onClick={(e) => setCurrentItem(e.key)}
-      selectedKeys={[currentItem]}
+      onClick={(e) => props.setCurrentNavItem(e.key)}
+      selectedKeys={[props.currentNavItem]}
       mode="horizontal"
       items={menuItems}
       className="flex justify-end"
