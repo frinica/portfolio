@@ -19,7 +19,7 @@ function App() {
   }
 
   return (
-    <body>
+    <body className="bg-slate-950 text-white">
       <header>
         <NavBar
           currentNavItem={currentNavItem}
@@ -27,7 +27,9 @@ function App() {
         />
       </header>
 
-      <main>{renderComponent(currentNavItem)}</main>
+      <main className="p-10 md:px-20 md:pb-20 inline-block">
+        {renderComponent(currentNavItem)}
+      </main>
     </body>
   )
 }

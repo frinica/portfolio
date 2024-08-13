@@ -9,16 +9,19 @@ type MenuItem = Required<MenuProps>["items"][number]
 
 const menuItems: MenuItem[] = [
   {
-    label: "Om Frida",
+    label: "About me",
     key: "about",
+    style: { color: "white" },
   },
   {
-    label: "Fullstack-projekt",
+    label: "Fullstack projects",
     key: "fullstack",
+    style: { color: "white" },
   },
   {
-    label: "Kontakt",
+    label: "Contact",
     key: "contact",
+    style: { color: "white" },
   },
 ]
 
@@ -29,7 +32,7 @@ export const NavBar = (props: NavProps) => {
       selectedKeys={[props.currentNavItem]}
       mode="horizontal"
       items={menuItems}
-      className="flex justify-end"
+      className="flex md:justify-end bg-inherit"
     />
   )
 }
