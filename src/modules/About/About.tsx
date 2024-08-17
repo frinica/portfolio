@@ -13,7 +13,6 @@ export const About = () => {
     link.click()
   }
 
-  const handleContact = (type: "linkedin" | "mail") => {}
   const contactItems = [
     {
       key: 1,
@@ -145,7 +144,7 @@ export const About = () => {
 
       <Divider className="border" />
 
-      <article>
+      <article id="contact">
         <h3 className="text-2xl font-semibold mb-4">Contact</h3>
         <Anchor items={contactItems} direction="horizontal" />
       </article>

@@ -1,4 +1,6 @@
 import { Menu, type MenuProps } from "antd"
+import Link from "antd/es/typography/Link"
+import { useNavigate } from "react-router-dom"
 
 type NavProps = {
   currentNavItem: string
@@ -19,16 +21,20 @@ const menuItems: MenuItem[] = [
     style: { color: "white" },
   },
   {
-    label: "Contact",
+    label: <Link href="#contact">Contact</Link>,
     key: "contact",
     style: { color: "white" },
   },
 ]
 
 export const NavBar = (props: NavProps) => {
+  const handleClick = (e: any) => {
+    props.setCurrentNavItem(e.key)
+  }
+
   return (
     <Menu
-      onClick={(e) => props.setCurrentNavItem(e.key)}
+      onClick={handleClick}
       selectedKeys={[props.currentNavItem]}
       mode="horizontal"
       items={menuItems}
