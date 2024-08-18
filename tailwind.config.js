@@ -11,7 +11,16 @@ module.exports = {
       "4xl": "2.441rem",
       "5xl": "3.052rem",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Barlow Condensed"],
+        serif: [],
+      },
+      backgroundImage: {
+        hero: "url(../public/assets/images/bg/bg-img.jpg)",
+        heroDesktop: "url(../public/assets/images/bg/bg-img-desktop.jpg)",
+      },
+    },
   },
   plugins: [],
 }

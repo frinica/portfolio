@@ -3,7 +3,6 @@ import "./App.css"
 import { NavBar } from "./components/Navbar"
 import { About } from "./modules/About/About"
 import { Fullstack } from "./modules/Fullstack/Fullstack"
-import { useRoutes } from "react-router-dom"
 
 function App() {
   const [currentNavItem, setCurrentNavItem] = useState("about")
@@ -20,7 +19,7 @@ function App() {
   }
 
   return (
-    <body className="bg-slate-950 text-white pb-10 md:pb-20">
+    <body className="bg-[#263430] text-[#EDEEE8] leading-7">
       <header>
         <NavBar
           currentNavItem={currentNavItem}
@@ -28,8 +27,10 @@ function App() {
         />
       </header>
 
-      <main className="p-10 md:px-20 inline-block h-screen w-full">
-        {renderComponent(currentNavItem)}
+      <main className="inline-block h-full w-full bg-hero bg-fixed bg-cover md:bg-heroDesktop">
+        <div className="p-10 bg-black bg-opacity-25 md:px-60 md:py-20">
+          {renderComponent(currentNavItem)}
+        </div>
       </main>
     </body>
   )

@@ -17,14 +17,16 @@ export const About = () => {
     {
       key: 1,
       title: (
-        <LinkedinOutlined style={{ color: "white", fontSize: "2.5rem" }} />
+        <LinkedinOutlined className="text-[#dcd6d0] text-4xl hover:!text-[#b0a999]" />
       ),
       href: "https://www.linkedin.com/in/frida-nicander/",
       target: "_blank",
     },
     {
       key: 2,
-      title: <MailOutlined style={{ color: "white", fontSize: "2.5rem" }} />,
+      title: (
+        <MailOutlined className="text-[#dcd6d0] text-4xl hover:!text-[#b0a999]" />
+      ),
       href: "mailto:ift.nicander@gmail.com",
       target: "_blank",
     },
@@ -32,8 +34,8 @@ export const About = () => {
   return (
     <section>
       <article>
-        <h1 className="text-4xl">Frida Nicander</h1>
-        <h2 className="text-3xl mb-8">Fullstack developer</h2>
+        <h1 className="text-4xl mb-4 md:mb-6">Frida Nicander</h1>
+        <h2 className="text-3xl mb-8 md:mb-12">Fullstack developer</h2>
         <p className="mb-4">
           Hi, I'm Frida, a Fullstack Developer with a deep passion for coding
           and a relentless drive to solve problems. I love diving into code,
@@ -52,10 +54,10 @@ export const About = () => {
         </p>
       </article>
 
-      <Divider className="border" />
+      <Divider className="border my-10" />
 
       <article>
-        <h3 className="text-2xl font-semibold mb-4">Experience</h3>
+        <h3 className="text-2xl font-semibold mb-8 md:mb-12">Experience</h3>
         <div className="flex">
           <Avatar
             size="large"
@@ -68,7 +70,7 @@ export const About = () => {
           </div>
         </div>
 
-        <p className="mb-8">
+        <p className="mb-10 md:mb-16">
           At Clira, I had the opportunity to help develop and maintain an
           innovative procurement system. Using Laravel and Next.js, I was part
           of building a platform that was both efficient and user-friendly. My
@@ -103,10 +105,10 @@ export const About = () => {
         </p>
       </article>
 
-      <Divider className="border" />
+      <Divider className="border md:my-10" />
 
       <article>
-        <h3 className="text-2xl font-semibold mb-4">Education</h3>
+        <h3 className="text-2xl font-semibold mb-8 md:mb-12">Education</h3>
         <div className="flex">
           <Avatar
             size="large"
@@ -131,21 +133,25 @@ export const About = () => {
         </p>
       </article>
 
-      <Divider className="border" />
+      <Divider className="border md:my-10" />
+
       <article className="grid">
-        <h3 className="text-2xl font-semibold mb-4">Download my CV</h3>
+        <h3 className="text-2xl font-semibold mb-8">Download my CV</h3>
         <Button
           size="large"
-          icon={<DownloadOutlined />}
+          icon={
+            <DownloadOutlined className="text-[#263430] hover:!text-[#dcd6d0]" />
+          }
           type="primary"
           onClick={downloadPdf}
+          className="bg-[#dcd6d0] hover:!bg-[#263430] hover:!border-[#dcd6d0]"
         />
       </article>
 
-      <Divider className="border" />
+      <Divider className="border md:my-10" />
 
       <article id="contact">
-        <h3 className="text-2xl font-semibold mb-4">Contact</h3>
+        <h3 className="text-2xl font-semibold mb-8">Contact</h3>
         <Anchor items={contactItems} direction="horizontal" />
       </article>
     </section>

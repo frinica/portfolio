@@ -1,6 +1,5 @@
 import { Menu, type MenuProps } from "antd"
 import Link from "antd/es/typography/Link"
-import { useNavigate } from "react-router-dom"
 
 type NavProps = {
   currentNavItem: string
@@ -13,17 +12,17 @@ const menuItems: MenuItem[] = [
   {
     label: "About me",
     key: "about",
-    style: { color: "white" },
+    style: { color: "#EDEEE8" },
   },
   {
     label: "Fullstack projects",
     key: "fullstack",
-    style: { color: "white" },
+    style: { color: "#EDEEE8" },
   },
   {
     label: <Link href="#contact">Contact</Link>,
     key: "contact",
-    style: { color: "white" },
+    style: { color: "#EDEEE8" },
   },
 ]
 
