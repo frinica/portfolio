@@ -3,9 +3,10 @@ import "./App.css"
 import { NavBar } from "./components/Navbar"
 import { About } from "./modules/About/About"
 import { Fullstack } from "./modules/Fullstack/Fullstack"
+import { Home } from "./modules/Home/Home"
 
 function App() {
-  const [currentNavItem, setCurrentNavItem] = useState("about")
+  const [currentNavItem, setCurrentNavItem] = useState("")
 
   const renderComponent = (currentNavItem: string) => {
     switch (currentNavItem) {
@@ -13,13 +14,21 @@ function App() {
         return <About />
       case "fullstack":
         return <Fullstack />
-      default:
+      case "contact":
         return <About />
+      default:
+        return <Home />
     }
   }
 
   return (
-    <body className="bg-[#263430] text-[#EDEEE8] leading-7">
+    <body
+      className={`${
+        currentNavItem === ""
+          ? "bg-heroHome h-screen"
+          : "bg-hero md:bg-heroDesktop h-fit"
+      } bg-fixed bg-cover bg-bottom text-[#EDEEE8] leading-7`}
+    >
       <header>
         <NavBar
           currentNavItem={currentNavItem}
@@ -27,10 +36,8 @@ function App() {
         />
       </header>
 
-      <main className="inline-block h-full w-full bg-hero bg-fixed bg-cover md:bg-heroDesktop">
-        <div className="p-10 bg-black bg-opacity-25 md:px-60 md:py-20">
-          {renderComponent(currentNavItem)}
-        </div>
+      <main className="w-full p-10 pt-16 md:px-60">
+        {renderComponent(currentNavItem)}
       </main>
     </body>
   )

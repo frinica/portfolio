@@ -19,6 +19,7 @@ module.exports = {
       backgroundImage: {
         hero: "url(../public/assets/images/bg/bg-img.jpg)",
         heroDesktop: "url(../public/assets/images/bg/bg-img-desktop.jpg)",
+        heroHome: "url(../public/assets/images/bg/landing-bg.png)",
       },
     },
   },

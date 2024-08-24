@@ -1,4 +1,4 @@
-import { Menu, type MenuProps } from "antd"
+import { Menu, Image, type MenuProps } from "antd"
 import Link from "antd/es/typography/Link"
 
 type NavProps = {
@@ -37,7 +37,7 @@ export const NavBar = (props: NavProps) => {
       selectedKeys={[props.currentNavItem]}
       mode="horizontal"
       items={menuItems}
-      className="flex md:justify-end bg-inherit"
+      className="flex px-4 justify-between bg-inherit md:justify-end"
     />
   )
 }

@@ -3,8 +3,6 @@ import { Anchor, Carousel, Divider, Image } from "antd"
 import Link from "antd/es/typography/Link"
 import { CSSProperties } from "react"
 
-// style={{ color: "white", fontSize: "1.2rem" }}
-
 const anchorItems = [
   {
     key: 1,
