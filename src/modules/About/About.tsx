@@ -38,20 +38,57 @@ export const About = () => {
         <h2 className="text-3xl mb-8 md:mb-12">Fullstack developer</h2>
         <p className="mb-4">
           Hi, I'm Frida, a Fullstack Developer with a deep passion for coding
-          and a relentless drive to solve problems. I love diving into code,
-          solving problems, and continuously learning new things. I approach
-          every challenge with a positive attitude and a determination to see it
-          through.
+          and a relentless drive, some would call it stubborness, to solve
+          problems. I love diving into code, solving problems, and continuously
+          learn new things. I approach every challenge with a positive attitude
+          and a determination to see it through.
+        </p>
+        <p className="mb-4">
+          Beyond my technical skills, I'm all about clear communication and
+          truly understanding what users need. This approach helps me
+          collaborate effectively with others and ensures we're delivering
+          solutions that matter. I also have a growing interest in design, which
+          guides my work in creating not just functional, but also visually
+          appealing and user-friendly applications. I'm excited to keep
+          learning, growing, and contributing to projects that make a
+          difference.
         </p>
         <p>
-          In addition to my technical skills, I value strong communication and a
-          deep understanding of user needs, which helps me collaborate
-          effectively and deliver solutions that truly meet the mark. I also
-          have a growing interest in design, which guides my work in creating
-          not just functional, but also visually appealing and user-friendly
-          applications. I'm excited to keep learning, growing, and contributing
-          to projects that make a difference.
+          When I'm not coding, I often enjoy a good book, which allows me to
+          explore new ideas that often spark my creativity and bring fresh
+          perspectives. I also love video games. A good game keeps my
+          problem-solving skills sharp and my focus laser-tight. And, of course,
+          spending time with animals is a joy that reminds me to appreciate the
+          simple things in life. Their companionship adds a touch of balance to
+          my busy days. 🐈
         </p>
+        <div className="md:flex md:gap-x-12">
+          <div>
+            <h3 className="font-semibold text-xl mb-2 mt-10">
+              Favourite books
+            </h3>
+            <ul>
+              <li>The Name Of The Wind by Patrick Rothfuss</li>
+              <li>Recursion by Blake Crouch</li>
+              <li>Dark Matter by Blake Crouch</li>
+              <li>Horns by Joe Hill</li>
+              <li>Heartshaped Box by Joe Hill</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-xl mb-2 mt-8 md:mt-10">
+              Favourite games
+            </h3>
+            <ul>
+              <li>Dragon Age</li>
+              <li>Mass Effect</li>
+              <li>The Witcher</li>
+              <li>Baldur's Gate 3</li>
+              <li>Stardew Valley</li>
+            </ul>
+          </div>
+        </div>
       </article>
 
       <Divider className="border my-10" />

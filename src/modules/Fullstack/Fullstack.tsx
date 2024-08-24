@@ -91,11 +91,16 @@ export const Fullstack = () => {
           </h2>
           <p>
             Clira is an advanced and innovative procurement platform designed to
-            streamline and enhance procurement processes for businesses. As a
-            developer on the Clira team, I contributed to both the development
-            and maintenance of the platform, focusing on improving the codebase,
+            streamline and enhance procurement processes. As a developer on the
+            Clira team, I've had the exciting challenge of working in a
+            fast-paced startup environment, where things move quickly, and
+            adaptability is key. I've contributed to both the development and
+            maintenance of the platform, worked on improving the codebase,
             enhancing the user experience, and implementing practical features
-            that address the needs of procurement professionals.
+            that address the needs of Cliras customers. The dynamic nature of
+            the company has presented many challenging problems, which have been
+            both fun to solve and instrumental in significantly improving my
+            skills in a relatively short amount of time.
           </p>
         </article>
         <article className="mb-4">
@@ -213,11 +218,11 @@ export const Fullstack = () => {
           </h2>
           <p>
             Djurens Rätt is a prominent non-profit organization focused on
-            animal rights, with a several digital applications designed to
-            support their mission. As a developer on the team, I helped with
-            maintaining and enhancing some of these applications, contributing
-            to updates and implementing new features that improved the
-            functionality and user experience.
+            animal rights, with several digital applications designed to support
+            their mission. As a developer on the team, I helped with maintaining
+            and enhancing some of these applications, contributing to updates
+            and implementing new features that improved the functionality and
+            user experience.
           </p>
         </article>
 
