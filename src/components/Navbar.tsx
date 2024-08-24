@@ -1,4 +1,4 @@
-import { Menu, Image, type MenuProps } from "antd"
+import { Menu, type MenuProps } from "antd"
 import Link from "antd/es/typography/Link"
 
 type NavProps = {
