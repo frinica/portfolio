@@ -1,3 +1,113 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Two themes, one set of neutral tokens (ink/paper/muted/subtle/haze/frost).
+ * Every component already uses these consistently as a bg/fg pair (e.g.
+ * bg-ink = page surface, text-paper = primary text, bg-paper text-ink = an
+ * inverted "chip" like a form input) — flipping the underlying CSS
+ * variables here re-themes the whole site without touching component
+ * classes. The six accent colors (teal/cyan/sky/blue/indigo/violet) are
+ * NOT theme-reactive — they're the fixed brand spectrum in both themes.
+ */
+:root {
+  /* "I feel moody" (default) — dark surface, light text */
+  --c-ink: 33 33 36;
+  --c-paper: 248 248 255;
+  --c-muted: 210 210 210;
+  --c-subtle: 69 69 75;
+  --c-haze: 215 221 253;
+  --c-frost: 235 238 255;
+}
+
+:root[data-theme="whimsy"] {
+  /* "I feel whimsical" — the page background is a bold full-spectrum
+     gradient (see App.vue), text is flat black for maximum sharpness
+     against it. */
+  --c-ink: 252 250 255;
+  --c-paper: 0 0 0;
+  --c-muted: 40 40 40;
+  --c-subtle: 184 184 194;
+  --c-haze: 199 195 214;
+  --c-frost: 185 181 204;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink text-paper font-sans transition-colors duration-300;
+}
+
+@layer components {
+  /* Scroll-triggered fade-in-from-bottom, toggled by the v-reveal directive */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Shine-sweep + lift hover effect for filled buttons */
+  .btn-animated {
+    @apply relative isolate overflow-hidden transition-transform duration-300 ease-out will-change-transform;
+  }
+  .btn-animated:hover {
+    @apply -translate-y-0.5;
+  }
+  .btn-animated:active {
+    @apply translate-y-0;
+  }
+  .btn-animated::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.6s ease;
+  }
+  .btn-animated:hover::after {
+    transform: translateX(120%);
+  }
+
+  .blinking-cursor {
+    display: inline-block;
+    animation: blink-cursor 1s steps(1, jump-none) infinite;
+  }
+}
+
+@keyframes blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .btn-animated,
+  .btn-animated::after {
+    transition: none;
+  }
+  .blinking-cursor {
+    animation: none;
+  }
+}
