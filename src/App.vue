@@ -10,7 +10,7 @@ import Contact from "./components/Contact.vue"
 
 <template>
   <div
-    class="flex min-h-screen w-full flex-col bg-ink text-paper whimsy:bg-[linear-gradient(90deg,#008f7a_0%,#008d97_20%,#0088b2_40%,#007ec3_60%,#4e6fc3_80%,#8b5ab0_100%)] whimsy:bg-center whimsy:bg-no-repeat whimsy:bg-[length:100%_100%] md:whimsy:bg-[length:min(1400px,100%)_100%]"
+    class="flex min-h-screen w-full flex-col bg-ink text-paper whimsy:bg-[linear-gradient(180deg,#008f7a_0%,#823878_50%,#008d97_100%)] whimsy:bg-center whimsy:bg-no-repeat whimsy:bg-[length:100%_100%]"
   >
     <NavBar />
     <main class="flex w-full flex-col">

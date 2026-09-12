@@ -8,13 +8,13 @@
  * bg-ink = page surface, text-paper = primary text, bg-paper text-ink = an
  * inverted "chip" like a form input) — flipping the underlying CSS
  * variables here re-themes the whole site without touching component
- * classes. The six accent colors (teal/cyan/sky/blue/indigo/violet) are
- * NOT theme-reactive — they're the fixed brand spectrum in both themes.
+ * classes. The three accent colors (teal/cyan/violet) are NOT theme-
+ * reactive — they're the fixed brand spectrum in both themes.
  */
 :root {
   /* "I feel moody" (default) — dark surface, light text */
   --c-ink: 33 33 36;
-  --c-paper: 248 248 255;
+  --c-paper: 255 249 242;
   --c-muted: 210 210 210;
   --c-subtle: 69 69 75;
   --c-haze: 215 221 253;

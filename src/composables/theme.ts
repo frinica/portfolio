@@ -2,6 +2,12 @@ import { ref, watch } from "vue"
 
 export type Theme = "moody" | "whimsy"
 
+// Whimsy mode is hidden for now — it's not launch-ready and was blocking
+// shipping the redesign. All the theme code stays in place; flipping this
+// back to true (and the matching flag in index.html's pre-paint script) is
+// the only thing needed to bring it back.
+export const WHIMSY_ENABLED = false
+
 const STORAGE_KEY = "portfolio-theme"
 const THEME_COLOR: Record<Theme, string> = {
   moody: "#212124",
@@ -9,6 +15,7 @@ const THEME_COLOR: Record<Theme, string> = {
 }
 
 function readStored(): Theme {
+  if (!WHIMSY_ENABLED) return "moody"
   try {
     return localStorage.getItem(STORAGE_KEY) === "whimsy" ? "whimsy" : "moody"
   } catch {
@@ -43,9 +50,11 @@ watch(theme, (t) => {
 })
 
 export function setTheme(t: Theme) {
+  if (t === "whimsy" && !WHIMSY_ENABLED) return
   theme.value = t
 }
 
 export function toggleTheme() {
+  if (!WHIMSY_ENABLED) return
   theme.value = theme.value === "moody" ? "whimsy" : "moody"
 }

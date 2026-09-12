@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from "vue"
 import { activeSectionId, initActiveSectionObserver } from "../composables/activeSection"
+import { WHIMSY_ENABLED } from "../composables/theme"
 import ThemeToggle from "./ThemeToggle.vue"
 import MenuIcon from "./icons/MenuIcon.vue"
 import CloseIcon from "./icons/CloseIcon.vue"
@@ -35,12 +36,12 @@ onBeforeUnmount(() => desktopQuery.removeEventListener("change", onBreakpointCha
 
 <template>
   <nav
-    class="sticky top-0 z-20 w-full border-b border-paper/10 bg-ink/80 backdrop-blur-md whimsy:border-b-[3px] whimsy:border-paper"
+    class="sticky top-0 z-20 w-full border-b border-paper/10 bg-ink/80 backdrop-blur-md whimsy:border-b-0 whimsy:bg-transparent whimsy:backdrop-blur-none whimsy:shadow-[0px_8px_12px_0px_rgba(0,0,0,0.18)]"
   >
     <div class="flex w-full items-center justify-between gap-2 px-5 py-4 md:grid md:grid-cols-[1fr_auto_1fr]">
       <button
         type="button"
-        class="flex w-fit items-center justify-center rounded-md p-1 text-paper transition-colors hover:text-sky md:hidden"
+        class="flex w-fit items-center justify-center rounded-md p-1 text-paper transition-colors hover:text-teal whimsy:hover:text-paper md:hidden"
         aria-controls="mobile-nav-menu"
         :aria-expanded="mobileMenuOpen"
         aria-label="Toggle navigation menu"
@@ -57,18 +58,18 @@ onBeforeUnmount(() => desktopQuery.removeEventListener("change", onBreakpointCha
           :key="section.id"
           :href="`#${section.id}`"
           class="group relative rounded-md px-3 py-1.5 font-mono text-[11px] font-bold transition-colors"
-          :class="activeSectionId === section.id ? 'text-sky' : 'text-paper hover:text-sky'"
+          :class="activeSectionId === section.id ? 'text-cyan whimsy:text-paper' : 'text-paper hover:text-teal whimsy:hover:text-paper'"
         >
           {{ section.label }}
           <span
-            class="pointer-events-none absolute -bottom-0.5 left-1/2 h-[2px] w-[calc(100%-1.25rem)] origin-center -translate-x-1/2 rounded-full bg-sky transition-transform duration-300 ease-out whimsy:bg-gradient-to-r whimsy:from-teal whimsy:via-blue whimsy:to-violet"
+            class="pointer-events-none absolute -bottom-0.5 left-1/2 h-[2px] w-[calc(100%-1.25rem)] origin-center -translate-x-1/2 rounded-full bg-cyan transition-transform duration-300 ease-out whimsy:bg-none whimsy:bg-paper"
             :class="activeSectionId === section.id ? 'scale-x-100' : 'scale-x-0'"
           />
         </a>
       </div>
 
       <div class="flex justify-end">
-        <ThemeToggle />
+        <ThemeToggle v-if="WHIMSY_ENABLED" />
       </div>
     </div>
 
@@ -83,7 +84,7 @@ onBeforeUnmount(() => desktopQuery.removeEventListener("change", onBreakpointCha
           :key="section.id"
           :href="`#${section.id}`"
           class="rounded-md px-3 py-2 font-mono text-[11px] font-bold transition-colors"
-          :class="activeSectionId === section.id ? 'text-sky' : 'text-paper hover:text-sky'"
+          :class="activeSectionId === section.id ? 'text-cyan whimsy:text-paper' : 'text-paper hover:text-teal whimsy:hover:text-paper'"
           @click="closeMobileMenu"
         >
           {{ section.label }}

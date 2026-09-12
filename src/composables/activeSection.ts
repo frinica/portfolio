@@ -1,7 +1,11 @@
 import { ref } from "vue"
 
-/** Currently active section id, shared across NavBar and SectionDivider. */
-export const activeSectionId = ref("profile")
+/**
+ * Currently active section id, shared across NavBar and SectionDivider.
+ * Empty string means "none" — e.g. still on the Hero, above every tracked
+ * section — so no nav item should show as active.
+ */
+export const activeSectionId = ref("")
 
 let ids: string[] = []
 let initialized = false
@@ -12,7 +16,10 @@ let ticking = false
 const ACTIVE_LINE_OFFSET = 96
 
 function updateActiveSection() {
-  let current = ids[0]
+  // No fallback to ids[0] here — if nothing has scrolled past the active
+  // line yet (e.g. still on the Hero), current stays "" and every nav item
+  // correctly shows as inactive instead of the first one being stuck "on".
+  let current = ""
   for (const id of ids) {
     const el = document.getElementById(id)
     if (!el) continue
@@ -20,7 +27,7 @@ function updateActiveSection() {
       current = id
     }
   }
-  if (current) activeSectionId.value = current
+  activeSectionId.value = current
 }
 
 function onScrollOrResize() {
