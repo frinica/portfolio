@@ -37,6 +37,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Safety net: decorative absolutely-positioned elements (card glows, blobs)
+   sometimes bleed a few px past their container on narrow screens. Clipping
+   horizontal overflow at the root keeps a slip like that from forcing the
+   whole page into a horizontal scroll. */
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   @apply bg-ink text-paper font-sans transition-colors duration-300;
 }

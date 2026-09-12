@@ -74,11 +74,11 @@ onBeforeUnmount(() => {
           :aria-labelledby="`${project.slug}-modal-title`"
           class="flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-haze bg-ink shadow-[0_20px_60px_rgba(0,0,0,0.5)] whimsy:border-[3px] whimsy:border-violet whimsy:ring-[3px] whimsy:ring-ink"
         >
-          <header class="flex items-start justify-between gap-4 border-b border-haze/30 px-6 py-5">
-            <div class="flex flex-col gap-2">
+          <header class="flex items-start justify-between gap-4 border-b border-haze/30 px-4 py-4 sm:px-6 sm:py-5">
+            <div class="flex min-w-0 flex-col gap-2">
               <h2
                 :id="`${project.slug}-modal-title`"
-                class="font-display text-2xl font-bold text-paper"
+                class="font-display text-xl font-bold text-paper sm:text-2xl"
               >
                 {{ project.title }}
               </h2>
@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
             </button>
           </header>
 
-          <div class="flex flex-col gap-8 overflow-y-auto px-6 py-6">
+          <div class="flex flex-col gap-8 overflow-y-auto px-4 py-6 sm:px-6">
             <section class="flex flex-col gap-2">
               <p class="font-mono text-xs font-bold uppercase text-teal">Overview</p>
               <p class="text-[14px] leading-relaxed text-paper">{{ project.overview }}</p>
@@ -109,10 +109,10 @@ onBeforeUnmount(() => {
                 <div
                   v-for="entry in project.stack"
                   :key="entry.label"
-                  class="flex items-baseline justify-between gap-4 border-b border-haze/20 pb-2 text-[13px]"
+                  class="flex flex-col gap-0.5 border-b border-haze/20 pb-2 text-[13px] sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
                 >
                   <span class="font-mono text-[11px] text-muted">{{ entry.label }}</span>
-                  <span class="text-right font-bold text-paper">{{ entry.value }}</span>
+                  <span class="font-bold text-paper sm:text-right">{{ entry.value }}</span>
                 </div>
               </div>
             </section>
@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
             </section>
           </div>
 
-          <footer class="border-t border-haze/30 px-6 py-4">
+          <footer class="border-t border-haze/30 px-4 py-4 sm:px-6">
             <a
               href="https://github.com/frinica"
               target="_blank"

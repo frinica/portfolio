@@ -40,7 +40,7 @@ const stats = [
         <div class="relative flex-1">
           <div
             aria-hidden="true"
-            class="absolute -top-[3px] -left-[3px] -right-[18px] -bottom-[18px] rounded-xl bg-gradient-to-br from-teal to-violet opacity-80 blur-sm whimsy:hidden"
+            class="absolute -top-[2px] -left-[2px] -right-[6px] -bottom-[6px] rounded-xl bg-gradient-to-br from-teal to-violet opacity-80 blur-sm whimsy:hidden md:-top-[3px] md:-left-[3px] md:-right-[18px] md:-bottom-[18px]"
           />
           <div
             class="relative flex h-full flex-col gap-5 rounded-xl bg-ink p-6 drop-shadow-[0px_4px_8px_rgba(2,22,125,0.02)] whimsy:border-[3px] whimsy:border-sky whimsy:bg-ink whimsy:ring-[3px] whimsy:ring-ink"
