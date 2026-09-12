@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ArrowIcon from "./icons/ArrowIcon.vue"
-import TerminalDot from "./icons/TerminalDot.vue"
 import ExternalLinkIcon from "./icons/ExternalLinkIcon.vue"
 
 const socials = [
@@ -11,50 +10,6 @@ const socials = [
     external: true,
   },
 ]
-
-// Segmented per line so each token can be colored independently, like a
-// real syntax highlighter, instead of one flat color per line.
-const codeLines: { text: string; tone: "keyword" | "value" | "key" | "punct" }[][] = [
-  [
-    { text: "const ", tone: "keyword" },
-    { text: "developer", tone: "value" },
-    { text: " = {", tone: "punct" },
-  ],
-  [
-    { text: "  name", tone: "key" },
-    { text: ": ", tone: "punct" },
-    { text: '"Frida"', tone: "value" },
-    { text: ",", tone: "punct" },
-  ],
-  [
-    { text: "  role", tone: "key" },
-    { text: ": ", tone: "punct" },
-    { text: '"Fullstack Developer"', tone: "value" },
-    { text: ",", tone: "punct" },
-  ],
-  [
-    { text: "  focus", tone: "key" },
-    { text: ": [", tone: "punct" },
-    { text: '"Vue"', tone: "value" },
-    { text: ", ", tone: "punct" },
-    { text: '"TypeScript"', tone: "value" },
-    { text: "],", tone: "punct" },
-  ],
-  [
-    { text: "  motto", tone: "key" },
-    { text: ": ", tone: "punct" },
-    { text: '"clear code, clear communication"', tone: "value" },
-    { text: ",", tone: "punct" },
-  ],
-  [{ text: "};", tone: "punct" }],
-]
-
-const toneClass: Record<(typeof codeLines)[number][number]["tone"], string> = {
-  keyword: "text-violet",
-  value: "text-paper",
-  key: "text-teal",
-  punct: "text-muted",
-}
 </script>
 
 <template>
@@ -118,29 +73,6 @@ const toneClass: Record<(typeof codeLines)[number][number]["tone"], string> = {
             social.label
           }}</span>
         </a>
-      </div>
-
-      <div
-        class="flex w-full flex-col gap-3 rounded-xl border-[1.5px] border-paper bg-ink p-4 drop-shadow-[0px_4px_8px_rgba(2,22,125,0.02)] whimsy:border-[3px] whimsy:border-violet whimsy:ring-[3px] whimsy:ring-ink md:max-w-md"
-      >
-        <div class="flex w-full items-center gap-1.5">
-          <TerminalDot color="#FF5F56" />
-          <TerminalDot color="#FFBD2E" />
-          <TerminalDot color="#27C93F" />
-          <p class="flex-1 pl-1 font-mono text-[11px] text-paper">frida-portfolio.ts</p>
-        </div>
-        <div class="h-px w-full bg-frost/40" />
-        <div class="flex flex-col gap-1.5 overflow-hidden font-mono text-xs leading-relaxed">
-          <p
-            v-for="(line, i) in codeLines"
-            :key="i"
-            class="whitespace-pre-wrap break-words"
-          ><span v-for="(seg, j) in line" :key="j" :class="toneClass[seg.tone]">{{ seg.text }}</span><span
-              v-if="i === codeLines.length - 1"
-              class="blinking-cursor text-paper"
-              aria-hidden="true"
-            >▍</span></p>
-        </div>
       </div>
     </div>
   </section>

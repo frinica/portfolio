@@ -12,6 +12,7 @@ const stackColumns = [
     tags: ["TypeScript", "JavaScript (ES6+)", "PHP", "HTML5", "CSS3"],
     ring: "from-teal to-cyan",
     fill: "whimsy:bg-gradient-to-r whimsy:from-teal whimsy:to-cyan whimsy:text-white",
+    accentBorder: "border-teal",
     cardBorder: "whimsy:border-teal",
   },
   {
@@ -19,6 +20,7 @@ const stackColumns = [
     tags: ["Vue.js", "Nuxt.js", "Next.js", "Laravel", "Pinia", "Tailwind CSS"],
     ring: "from-sky to-blue",
     fill: "whimsy:bg-gradient-to-r whimsy:from-sky whimsy:to-blue whimsy:text-white",
+    accentBorder: "border-sky",
     cardBorder: "whimsy:border-sky",
   },
   {
@@ -26,6 +28,7 @@ const stackColumns = [
     tags: ["Git & GitHub", "Docker", "Auth0", "Firebase", "PostgreSQL"],
     ring: "from-indigo to-violet",
     fill: "whimsy:bg-gradient-to-r whimsy:from-indigo whimsy:to-violet whimsy:text-white",
+    accentBorder: "border-indigo",
     cardBorder: "whimsy:border-indigo",
   },
 ]
@@ -43,9 +46,14 @@ const stackColumns = [
         <div
           v-for="column in stackColumns"
           :key="column.title"
-          class="flex flex-col gap-4 rounded-xl border border-paper p-5 drop-shadow-[0px_4px_8px_rgba(2,22,125,0.02)] whimsy:border-[3px] whimsy:bg-ink whimsy:ring-[3px] whimsy:ring-ink"
-          :class="column.cardBorder"
+          class="relative flex flex-col gap-4 rounded-xl border p-5 drop-shadow-[0px_4px_8px_rgba(2,22,125,0.02)] whimsy:border-[3px] whimsy:bg-ink whimsy:ring-[3px] whimsy:ring-ink"
+          :class="[column.accentBorder, column.cardBorder]"
         >
+          <div
+            aria-hidden="true"
+            class="absolute -top-3 left-1/2 h-6 w-6 -translate-x-1/2 rotate-45 rounded-md border-2 bg-ink whimsy:hidden"
+            :class="column.accentBorder"
+          />
           <p class="font-mono text-[13px] font-bold uppercase text-teal">
             {{ column.title }}
           </p>

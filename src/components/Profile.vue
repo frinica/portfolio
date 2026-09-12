@@ -37,20 +37,26 @@ const stats = [
           </p>
         </div>
 
-        <div
-          class="flex flex-1 flex-col gap-5 rounded-xl border border-haze p-6 drop-shadow-[0px_4px_8px_rgba(2,22,125,0.02)] whimsy:border-[3px] whimsy:border-sky whimsy:bg-ink whimsy:ring-[3px] whimsy:ring-ink"
-        >
-          <p class="font-mono text-[13px] font-bold uppercase text-teal">
-            Profile Overview
-          </p>
-          <div class="flex flex-col gap-3.5">
-            <div
-              v-for="stat in stats"
-              :key="stat.label"
-              class="flex items-center justify-between gap-4 border-b border-paper pb-2.5"
-            >
-              <p class="font-mono text-[11px] text-paper">{{ stat.label }}</p>
-              <p class="text-right text-[13px] font-bold text-paper">{{ stat.value }}</p>
+        <div class="relative flex-1">
+          <div
+            aria-hidden="true"
+            class="absolute -top-[3px] -left-[3px] -right-[18px] -bottom-[18px] rounded-xl bg-gradient-to-br from-teal to-violet opacity-80 blur-sm whimsy:hidden"
+          />
+          <div
+            class="relative flex h-full flex-col gap-5 rounded-xl bg-ink p-6 drop-shadow-[0px_4px_8px_rgba(2,22,125,0.02)] whimsy:border-[3px] whimsy:border-sky whimsy:bg-ink whimsy:ring-[3px] whimsy:ring-ink"
+          >
+            <p class="font-mono text-[13px] font-bold uppercase text-teal">
+              Profile Overview
+            </p>
+            <div class="flex flex-col gap-3.5">
+              <div
+                v-for="stat in stats"
+                :key="stat.label"
+                class="flex items-center justify-between gap-4 border-b border-paper pb-2.5"
+              >
+                <p class="font-mono text-[11px] text-paper">{{ stat.label }}</p>
+                <p class="text-right text-[13px] font-bold text-paper">{{ stat.value }}</p>
+              </div>
             </div>
           </div>
         </div>
