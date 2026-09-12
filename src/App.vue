@@ -9,9 +9,7 @@ import Contact from "./components/Contact.vue"
 </script>
 
 <template>
-  <div
-    class="flex min-h-screen w-full flex-col bg-ink text-paper whimsy:bg-[linear-gradient(180deg,#008f7a_0%,#823878_50%,#008d97_100%)] whimsy:bg-center whimsy:bg-no-repeat whimsy:bg-[length:100%_100%]"
-  >
+  <div class="flex min-h-screen w-full flex-col bg-ink text-paper">
     <NavBar />
     <main class="flex w-full flex-col">
       <Hero />

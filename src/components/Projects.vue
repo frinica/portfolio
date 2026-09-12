@@ -40,10 +40,10 @@ const cardAccents = [
       <div class="grid w-full grid-cols-1 gap-5 md:grid-cols-2">
         <div v-for="(project, i) in projects" :key="project.slug" v-reveal="i * 120">
           <div
-            class="group h-full rounded-xl bg-gradient-to-br p-[1.5px] shadow-[0px_4px_16px_0px_rgba(2,22,125,0.02)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg whimsy:bg-none whimsy:p-2 whimsy:hover:shadow-none"
+            class="group h-full rounded-xl bg-gradient-to-br p-[1.5px] shadow-[0px_4px_16px_0px_rgba(2,22,125,0.02)] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             :class="[cardAccents[i].ring, cardAccents[i].shadow]"
           >
-            <article class="flex h-full flex-col overflow-hidden rounded-[10px] bg-ink whimsy:border whimsy:border-paper whimsy:bg-transparent">
+            <article class="flex h-full flex-col overflow-hidden rounded-[10px] bg-ink">
               <div class="h-40 w-full overflow-hidden">
                 <img
                   :src="project.cardImage"
@@ -63,7 +63,7 @@ const cardAccents = [
                 </div>
                 <button
                   type="button"
-                  class="group/link flex items-center gap-1.5 pt-1 font-mono text-xs font-bold text-paper hover:text-teal whimsy:hover:text-paper"
+                  class="group/link flex items-center gap-1.5 pt-1 font-mono text-xs font-bold text-paper hover:text-teal"
                   @click="openProject(project)"
                 >
                   VIEW DETAILS
@@ -76,7 +76,7 @@ const cardAccents = [
 
         <div v-reveal="240" class="md:col-span-2">
           <article
-            class="flex flex-col justify-center gap-3 rounded-xl border border-dashed border-haze p-6 text-center transition-colors duration-300 hover:border-violet whimsy:border-[2.667px] whimsy:border-paper whimsy:bg-transparent whimsy:hover:border-paper whimsy:shadow-[4px_4px_4px_0px_rgba(0,0,0,0.2)]"
+            class="flex flex-col justify-center gap-3 rounded-xl border border-dashed border-haze p-6 text-center transition-colors duration-300 hover:border-violet"
           >
             <h3 class="font-display text-xl font-bold">More on GitHub</h3>
             <p class="text-[13px] leading-relaxed text-paper">
@@ -87,7 +87,7 @@ const cardAccents = [
               href="https://github.com/frinica"
               target="_blank"
               rel="noreferrer"
-              class="group/link mx-auto flex items-center gap-1.5 pt-1 font-mono text-xs font-bold text-paper hover:text-teal whimsy:hover:text-paper"
+              class="group/link mx-auto flex items-center gap-1.5 pt-1 font-mono text-xs font-bold text-paper hover:text-teal"
             >
               VIEW GITHUB PROFILE
               <ArrowIcon :size="10" color="currentColor" class="transition-transform duration-300 group-hover/link:translate-x-1" />

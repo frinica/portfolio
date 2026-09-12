@@ -1,23 +1,16 @@
 import { ref, watch } from "vue"
 
-export type Theme = "moody" | "whimsy"
-
-// Whimsy mode is hidden for now — it's not launch-ready and was blocking
-// shipping the redesign. All the theme code stays in place; flipping this
-// back to true (and the matching flag in index.html's pre-paint script) is
-// the only thing needed to bring it back.
-export const WHIMSY_ENABLED = false
+export type Theme = "moody" | "light"
 
 const STORAGE_KEY = "portfolio-theme"
 const THEME_COLOR: Record<Theme, string> = {
   moody: "#212124",
-  whimsy: "#fcfaff",
+  light: "#fff9f2",
 }
 
 function readStored(): Theme {
-  if (!WHIMSY_ENABLED) return "moody"
   try {
-    return localStorage.getItem(STORAGE_KEY) === "whimsy" ? "whimsy" : "moody"
+    return localStorage.getItem(STORAGE_KEY) === "light" ? "light" : "moody"
   } catch {
     return "moody"
   }
@@ -27,8 +20,8 @@ export const theme = ref<Theme>(readStored())
 
 function applyTheme(t: Theme) {
   if (typeof document === "undefined") return
-  if (t === "whimsy") {
-    document.documentElement.dataset.theme = "whimsy"
+  if (t === "light") {
+    document.documentElement.dataset.theme = "light"
   } else {
     delete document.documentElement.dataset.theme
   }
@@ -36,7 +29,7 @@ function applyTheme(t: Theme) {
 }
 
 // Apply immediately (module load, before mount) — index.html's inline
-// script already set the attribute for "whimsy" pre-paint, this just keeps
+// script already set the attribute for "light" pre-paint, this just keeps
 // the reactive ref and the DOM in sync from here on.
 applyTheme(theme.value)
 
@@ -50,11 +43,9 @@ watch(theme, (t) => {
 })
 
 export function setTheme(t: Theme) {
-  if (t === "whimsy" && !WHIMSY_ENABLED) return
   theme.value = t
 }
 
 export function toggleTheme() {
-  if (!WHIMSY_ENABLED) return
-  theme.value = theme.value === "moody" ? "whimsy" : "moody"
+  theme.value = theme.value === "moody" ? "light" : "moody"
 }

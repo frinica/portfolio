@@ -40,12 +40,12 @@ const stats = [
         <div class="relative flex-1">
           <div
             aria-hidden="true"
-            class="absolute -top-[1px] -left-[1px] -right-[4px] -bottom-[4px] rounded-xl bg-gradient-to-br from-teal to-violet opacity-80 blur-sm md:-top-[2px] md:-left-[2px] md:-right-[12px] md:-bottom-[12px] whimsy:top-0 whimsy:left-0 whimsy:right-[-8px] whimsy:bottom-[-8px] whimsy:bg-none whimsy:border-[2.667px] whimsy:border-[#212124] whimsy:opacity-100 whimsy:blur-none"
+            class="absolute -top-[1px] -left-[1px] -right-[4px] -bottom-[4px] rounded-xl bg-gradient-to-br from-teal to-violet opacity-80 blur-sm md:-top-[2px] md:-left-[2px] md:-right-[12px] md:-bottom-[12px]"
           />
           <div
-            class="relative flex h-full flex-col gap-5 rounded-xl bg-ink p-6 drop-shadow-[0px_4px_8px_rgba(2,22,125,0.02)] whimsy:border-[2.667px] whimsy:border-paper whimsy:bg-transparent"
+            class="relative flex h-full flex-col gap-5 rounded-xl bg-ink p-6 drop-shadow-[0px_4px_8px_rgba(2,22,125,0.02)]"
           >
-            <p class="font-mono text-[13px] font-bold uppercase text-teal whimsy:text-paper">
+            <p class="font-mono text-[13px] font-bold uppercase text-teal">
               Profile Overview
             </p>
             <div class="flex flex-col gap-3.5">

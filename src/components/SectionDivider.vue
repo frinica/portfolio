@@ -12,13 +12,13 @@ const isActive = computed(() => activeSectionId.value === props.sectionId)
 
 <template>
   <div class="flex w-full items-center gap-3 py-4">
-    <div class="h-px flex-1 bg-frost/60 whimsy:bg-paper" />
+    <div class="h-px flex-1 bg-frost/60" />
     <p
       class="ml-2 font-mono text-xs font-bold uppercase transition-colors duration-500"
-      :class="isActive ? 'text-cyan whimsy:text-paper' : 'text-teal whimsy:text-paper'"
+      :class="isActive ? 'text-cyan' : 'text-teal'"
     >
       {{ label }}
     </p>
-    <div class="h-px w-[60px] bg-frost/60 whimsy:bg-paper" />
+    <div class="h-px w-[60px] bg-frost/60" />
   </div>
 </template>

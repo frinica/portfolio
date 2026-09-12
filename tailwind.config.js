@@ -1,5 +1,3 @@
-import plugin from "tailwindcss/plugin"
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{vue,ts}"],
@@ -32,12 +30,5 @@ export default {
       },
     },
   },
-  plugins: [
-    // A custom variant for the "whimsy" theme, so components can opt in to
-    // extra flourishes beyond the automatic ink/paper light-mode swap, e.g.
-    // class="bg-cyan whimsy:bg-gradient-to-r whimsy:from-teal whimsy:to-violet"
-    plugin(({ addVariant }) => {
-      addVariant("whimsy", '[data-theme="whimsy"] &')
-    }),
-  ],
+  plugins: [],
 }

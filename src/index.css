@@ -21,16 +21,20 @@
   --c-frost: 235 238 255;
 }
 
-:root[data-theme="whimsy"] {
-  /* "I feel whimsical" — the page background is a bold full-spectrum
-     gradient (see App.vue), text is flat black for maximum sharpness
-     against it. */
-  --c-ink: 252 250 255;
-  --c-paper: 0 0 0;
-  --c-muted: 40 40 40;
-  --c-subtle: 184 184 194;
-  --c-haze: 199 195 214;
-  --c-frost: 185 181 204;
+:root[data-theme="light"] {
+  /* "I feel radiant" — a plain inversion of the moody theme: light
+     surface, dark text. ink/paper and muted/subtle simply swap places
+     with their moody-theme counterpart (they were already a matched
+     bg/fg pair, just flipped). haze/frost have no such counterpart, so
+     they're darkened with the same ×0.7 tint formula used for the brand
+     color shades below. Accent colors (teal/cyan/violet) are untouched —
+     only these black/white neutrals flip. */
+  --c-ink: 255 249 242;
+  --c-paper: 33 33 36;
+  --c-muted: 69 69 75;
+  --c-subtle: 210 210 210;
+  --c-haze: 151 155 177;
+  --c-frost: 165 167 179;
 }
 
 html {

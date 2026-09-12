@@ -72,7 +72,7 @@ onBeforeUnmount(() => {
           role="dialog"
           aria-modal="true"
           :aria-labelledby="`${project.slug}-modal-title`"
-          class="flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-haze bg-ink shadow-[0_20px_60px_rgba(0,0,0,0.5)] whimsy:border-[2.667px] whimsy:border-paper whimsy:bg-transparent whimsy:shadow-[8px_8px_0px_0px_#212124]"
+          class="flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-haze bg-ink shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
         >
           <header class="flex items-start justify-between gap-4 border-b border-haze/30 px-4 py-4 sm:px-6 sm:py-5">
             <div class="flex min-w-0 flex-col gap-2">
@@ -90,7 +90,7 @@ onBeforeUnmount(() => {
               ref="closeButtonRef"
               type="button"
               aria-label="Close"
-              class="shrink-0 rounded-md p-1.5 text-paper transition-colors hover:bg-paper/10 hover:text-violet whimsy:hover:text-paper"
+              class="shrink-0 rounded-md p-1.5 text-paper transition-colors hover:bg-paper/10 hover:text-violet"
               @click="close"
             >
               <CloseIcon :size="18" />
@@ -99,12 +99,12 @@ onBeforeUnmount(() => {
 
           <div class="flex flex-col gap-8 overflow-y-auto px-4 py-6 sm:px-6">
             <section class="flex flex-col gap-2">
-              <p class="font-mono text-xs font-bold uppercase text-teal whimsy:text-paper">Overview</p>
+              <p class="font-mono text-xs font-bold uppercase text-teal">Overview</p>
               <p class="text-[14px] leading-relaxed text-paper">{{ project.overview }}</p>
             </section>
 
             <section class="flex flex-col gap-3">
-              <p class="font-mono text-xs font-bold uppercase text-teal whimsy:text-paper">Tech Stack</p>
+              <p class="font-mono text-xs font-bold uppercase text-teal">Tech Stack</p>
               <div class="flex flex-col gap-2.5">
                 <div
                   v-for="entry in project.stack"
@@ -118,7 +118,7 @@ onBeforeUnmount(() => {
             </section>
 
             <section class="flex flex-col gap-5">
-              <p class="font-mono text-xs font-bold uppercase text-teal whimsy:text-paper">Highlights</p>
+              <p class="font-mono text-xs font-bold uppercase text-teal">Highlights</p>
               <div class="flex flex-col gap-6">
                 <div v-for="highlight in project.highlights" :key="highlight.title" class="flex flex-col gap-2.5">
                   <h3 class="font-display text-base font-bold text-paper">{{ highlight.title }}</h3>
@@ -142,7 +142,7 @@ onBeforeUnmount(() => {
               href="https://github.com/frinica"
               target="_blank"
               rel="noreferrer"
-              class="font-mono text-xs font-bold text-paper hover:text-teal whimsy:hover:text-paper"
+              class="font-mono text-xs font-bold text-paper hover:text-teal"
             >
               VIEW MORE ON GITHUB →
             </a>
