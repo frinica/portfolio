@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Apply the saved theme before first paint, to avoid a flash of the
+      // wrong theme. Kept intentionally tiny and dependency-free.
+      //
+      // WHIMSY_ENABLED: whimsy mode is hidden for now (not launch-ready) —
+      // keep this flag in sync with src/composables/theme.ts. Flip both
+      // back to re-enable; nothing else needs to change.
+      var WHIMSY_ENABLED = false
+      try {
+        if (WHIMSY_ENABLED && localStorage.getItem("portfolio-theme") === "whimsy") {
+          document.documentElement.dataset.theme = "whimsy"
+        }
+      } catch (e) {}
+    </script>
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#212124" />
+    <meta
+      name="description"
+      content="Portfolio of Frida Nicander - Fullstack developer"
+    />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frida Nicander - Portfolio</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
