@@ -30,6 +30,17 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!--
+      Static shadow of the Vue contact form, for Netlify's build-time form
+      detection (it parses this HTML, not the runtime Vue-rendered DOM).
+      Field names/honeypot must match what Contact.vue actually submits.
+    -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
