@@ -14,11 +14,11 @@ const socials = [
 
 <template>
   <section
-    class="relative flex min-h-[85vh] w-full flex-col justify-center overflow-hidden px-5 py-16 md:min-h-0 md:px-16 xl:min-h-[90vh]"
+    class="relative isolate flex min-h-[85vh] w-full flex-col justify-center overflow-hidden px-5 py-16 md:min-h-0 md:px-16 xl:min-h-[90vh]"
   >
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-      <div class="absolute -left-24 -top-24 h-[420px] w-[420px] rounded-full bg-cyan/20 blur-[130px]" />
-      <div class="absolute -right-20 top-1/3 h-[380px] w-[380px] rounded-full bg-violet/15 blur-[130px]" />
+      <div class="hero-orb hero-orb-a absolute -left-24 -top-24 h-[420px] w-[420px] rounded-full blur-[70px]" />
+      <div class="hero-orb hero-orb-b absolute -right-20 top-1/3 h-[380px] w-[380px] rounded-full blur-[70px]" />
     </div>
 
     <div class="mx-auto flex w-full max-w-5xl flex-col gap-6">

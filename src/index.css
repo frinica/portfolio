@@ -120,6 +120,46 @@ body {
     display: inline-block;
     animation: blink-cursor 1s steps(1, jump-none) infinite;
   }
+
+  /*
+   * Ambient drift on the hero's decorative blur orbs — the one place the
+   * moody/radiant toggle changes behavior, not just color. Moody drifts
+   * slow and atmospheric; radiant pulses quicker and brighter. Same two
+   * orbs, same keyframes structure, different pace and reach per theme.
+   */
+  .hero-orb {
+    animation-name: orb-drift-moody;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  .hero-orb-a {
+    animation-duration: 17s;
+    background-image: radial-gradient(circle, #823878 0%, transparent 100%);
+  }
+  .hero-orb-b {
+    animation-duration: 21s;
+    animation-delay: -7s;
+    background-image: radial-gradient(circle, #008d97 0%, transparent 100%);
+  }
+  :root[data-theme="light"] .hero-orb {
+    animation-name: orb-drift-radiant;
+  }
+  :root[data-theme="light"] .hero-orb-a {
+    animation-duration: 9s;
+    /*
+     * A color fading straight to transparent reads as "glowing" only
+     * against a dark background — on a light one it's just a flat tinted
+     * patch. A real glow needs a brighter core, so radiant gets a 3-stop
+     * gradient (near-white center -> tint -> transparent) instead of the
+     * moody theme's simpler 2-stop color -> transparent.
+     */
+    background-image: radial-gradient(circle, #fdf6fc 0%, #ae7ea7 30%, transparent 100%);
+  }
+  :root[data-theme="light"] .hero-orb-b {
+    animation-duration: 11s;
+    animation-delay: -4s;
+    background-image: radial-gradient(circle, #eafbfc 0%, #59b5bb 30%, transparent 100%);
+  }
 }
 
 @keyframes blink-cursor {
@@ -155,6 +195,34 @@ body {
   }
 }
 
+@keyframes orb-drift-moody {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(22px, -16px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes orb-drift-radiant {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  33% {
+    transform: translate(-16px, 12px) scale(1.12);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(14px, -12px) scale(0.94);
+    opacity: 0.9;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -172,6 +240,9 @@ body {
     transition: none;
   }
   .blinking-cursor {
+    animation: none;
+  }
+  .hero-orb {
     animation: none;
   }
 }

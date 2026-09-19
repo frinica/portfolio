@@ -62,7 +62,7 @@ const scrollToTop = () => {
 <template>
   <footer
     id="contact"
-    class="relative flex w-full flex-col gap-10 overflow-hidden border-t border-muted px-5 pb-6 pt-12 md:px-16 md:pt-20"
+    class="relative isolate flex w-full flex-col gap-10 overflow-hidden border-t border-muted px-5 pb-6 pt-12 md:px-16 md:pt-20"
   >
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
       <div class="absolute -bottom-24 -left-20 h-[380px] w-[380px] rounded-full bg-teal/15 blur-[130px]" />
