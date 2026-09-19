@@ -14,15 +14,15 @@ const socials = [
 
 <template>
   <section
-    class="relative flex min-h-[85vh] w-full flex-col justify-center overflow-hidden px-5 py-16 md:min-h-[90vh] md:px-16"
+    class="relative flex min-h-[85vh] w-full flex-col justify-center overflow-hidden px-5 py-16 md:min-h-0 md:px-16 xl:min-h-[90vh]"
   >
     <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
       <div class="absolute -left-24 -top-24 h-[420px] w-[420px] rounded-full bg-cyan/20 blur-[130px]" />
       <div class="absolute -right-20 top-1/3 h-[380px] w-[380px] rounded-full bg-violet/15 blur-[130px]" />
     </div>
 
-    <div v-reveal class="mx-auto flex w-full max-w-5xl flex-col gap-6">
-      <div class="flex flex-col items-start gap-4">
+    <div class="mx-auto flex w-full max-w-5xl flex-col gap-6">
+      <div class="intro-in intro-in-delay-1 flex flex-col items-start gap-4">
         <div class="rounded-full py-1.5">
           <p class="font-mono text-[11px] font-bold uppercase text-teal">
             Welcome to my portfolio
@@ -39,7 +39,7 @@ const socials = [
         </p>
       </div>
 
-      <div class="flex w-full flex-col gap-3 sm:flex-row sm:w-auto">
+      <div class="intro-in intro-in-delay-2 flex w-full flex-col gap-3 sm:flex-row sm:w-auto">
         <a
           href="#projects"
           class="btn-animated flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-teal via-violet to-cyan px-6 py-3.5 font-mono text-[13px] font-bold uppercase text-white shadow-[0px_4px_6px_rgba(2,22,125,0.06)] hover:shadow-lg hover:shadow-cyan/35 sm:w-auto"
@@ -60,7 +60,7 @@ const socials = [
         </a>
       </div>
 
-      <div class="flex w-full flex-wrap items-center gap-4">
+      <div class="intro-in intro-in-delay-3 flex w-full flex-wrap items-center gap-4">
         <p class="font-mono text-xs font-bold text-paper">FIND ME:</p>
         <a
           v-for="social in socials"

@@ -6,7 +6,7 @@ import SparkleIcon from "./icons/SparkleIcon.vue"
 
 <template>
   <div
-    class="flex items-center gap-1 rounded-full border border-paper/15 p-1 font-mono text-[10px] font-bold uppercase"
+    class="flex items-center gap-1 rounded-full border border-paper/15 font-mono text-[10px] font-bold uppercase"
     role="radiogroup"
     aria-label="Site theme"
   >
@@ -14,18 +14,18 @@ import SparkleIcon from "./icons/SparkleIcon.vue"
       type="button"
       role="radio"
       :aria-checked="theme === 'moody'"
-      class="flex items-center gap-1.5 rounded-full px-2.5 py-1 transition-colors duration-300 sm:px-3"
+      class="flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1 transition-colors duration-300 sm:px-3"
       :class="theme === 'moody' ? 'bg-paper text-ink' : 'text-paper hover:text-teal'"
       @click="setTheme('moody')"
     >
       <MoonIcon :size="11" color="currentColor" />
-      <span class="hidden sm:inline">I feel </span>moody
+      <span class="hidden lg:inline">I feel </span>moody
     </button>
     <button
       type="button"
       role="radio"
       :aria-checked="theme === 'light'"
-      class="flex items-center gap-1.5 rounded-full px-2.5 py-1 transition-colors duration-300 sm:px-3"
+      class="flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1 transition-colors duration-300 sm:px-3"
       :class="
         theme === 'light'
           ? 'bg-gradient-to-r from-teal via-violet to-cyan text-white'
@@ -34,7 +34,7 @@ import SparkleIcon from "./icons/SparkleIcon.vue"
       @click="setTheme('light')"
     >
       <SparkleIcon :size="11" color="currentColor" />
-      <span class="hidden sm:inline">I feel </span>radiant
+      <span class="hidden lg:inline">I feel </span>radiant
     </button>
   </div>
 </template>

@@ -35,7 +35,7 @@ onBeforeUnmount(() => desktopQuery.removeEventListener("change", onBreakpointCha
 
 <template>
   <nav
-    class="sticky top-0 z-20 w-full border-b border-paper/10 bg-ink/80 backdrop-blur-md"
+    class="intro-in-nav sticky top-0 z-20 w-full border-b border-paper/10 bg-ink/80 backdrop-blur-md"
   >
     <div class="flex w-full items-center justify-between gap-2 px-5 py-4 md:grid md:grid-cols-[1fr_auto_1fr]">
       <button
