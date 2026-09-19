@@ -1,3 +1,248 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Two themes, one set of neutral tokens (ink/paper/muted/subtle/haze/frost).
+ * Every component already uses these consistently as a bg/fg pair (e.g.
+ * bg-ink = page surface, text-paper = primary text, bg-paper text-ink = an
+ * inverted "chip" like a form input) — flipping the underlying CSS
+ * variables here re-themes the whole site without touching component
+ * classes. The three accent colors (teal/cyan/violet) are NOT theme-
+ * reactive — they're the fixed brand spectrum in both themes.
+ */
+:root {
+  /* "I feel moody" (default) — dark surface, light text */
+  --c-ink: 33 33 36;
+  --c-paper: 255 249 242;
+  --c-muted: 210 210 210;
+  --c-subtle: 69 69 75;
+  --c-haze: 215 221 253;
+  --c-frost: 235 238 255;
+}
+
+:root[data-theme="light"] {
+  /* "I feel radiant" — a plain inversion of the moody theme: light
+     surface, dark text. ink/paper and muted/subtle simply swap places
+     with their moody-theme counterpart (they were already a matched
+     bg/fg pair, just flipped). haze/frost have no such counterpart, so
+     they're darkened with the same ×0.7 tint formula used for the brand
+     color shades below. Accent colors (teal/cyan/violet) are untouched —
+     only these black/white neutrals flip. */
+  --c-ink: 255 249 242;
+  --c-paper: 33 33 36;
+  --c-muted: 69 69 75;
+  --c-subtle: 210 210 210;
+  --c-haze: 151 155 177;
+  --c-frost: 165 167 179;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Safety net: decorative absolutely-positioned elements (card glows, blobs)
+   sometimes bleed a few px past their container on narrow screens. Clipping
+   horizontal overflow at the root keeps a slip like that from forcing the
+   whole page into a horizontal scroll. */
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-ink text-paper font-sans transition-colors duration-300;
+}
+
+@layer components {
+  /* Scroll-triggered fade-in-from-bottom, toggled by the v-reveal directive */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /*
+   * One-time page-load intro for the nav + hero (always above the fold, so
+   * no IntersectionObserver needed — just a plain CSS animation on mount).
+   * Deliberately distinct from .reveal: a longer rise with a slight scale
+   * and an overshoot ease, so the first impression reads as a single
+   * choreographed beat rather than the same scroll-fade used everywhere else.
+   */
+  .intro-in {
+    animation: intro-rise 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .intro-in-delay-1 {
+    animation-delay: 280ms;
+  }
+  .intro-in-delay-2 {
+    animation-delay: 500ms;
+  }
+  .intro-in-delay-3 {
+    animation-delay: 720ms;
+  }
+  .intro-in-nav {
+    animation: intro-drop 1.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Shine-sweep + lift hover effect for filled buttons */
+  .btn-animated {
+    @apply relative isolate overflow-hidden transition-transform duration-300 ease-out will-change-transform;
+  }
+  .btn-animated:hover {
+    @apply -translate-y-0.5;
+  }
+  .btn-animated:active {
+    @apply translate-y-0;
+  }
+  .btn-animated::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.6s ease;
+  }
+  .btn-animated:hover::after {
+    transform: translateX(120%);
+  }
+
+  .blinking-cursor {
+    display: inline-block;
+    animation: blink-cursor 1s steps(1, jump-none) infinite;
+  }
+
+  /*
+   * Ambient drift on the hero's decorative blur orbs — the one place the
+   * moody/radiant toggle changes behavior, not just color. Moody drifts
+   * slow and atmospheric; radiant pulses quicker and brighter. Same two
+   * orbs, same keyframes structure, different pace and reach per theme.
+   */
+  .hero-orb {
+    animation-name: orb-drift-moody;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  .hero-orb-a {
+    animation-duration: 17s;
+    background-image: radial-gradient(circle, #823878 0%, transparent 100%);
+  }
+  .hero-orb-b {
+    animation-duration: 21s;
+    animation-delay: -7s;
+    background-image: radial-gradient(circle, #008d97 0%, transparent 100%);
+  }
+  :root[data-theme="light"] .hero-orb {
+    animation-name: orb-drift-radiant;
+  }
+  :root[data-theme="light"] .hero-orb-a {
+    animation-duration: 9s;
+    /*
+     * A color fading straight to transparent reads as "glowing" only
+     * against a dark background — on a light one it's just a flat tinted
+     * patch. A real glow needs a brighter core, so radiant gets a 3-stop
+     * gradient (near-white center -> tint -> transparent) instead of the
+     * moody theme's simpler 2-stop color -> transparent.
+     */
+    background-image: radial-gradient(circle, #fdf6fc 0%, #ae7ea7 30%, transparent 100%);
+  }
+  :root[data-theme="light"] .hero-orb-b {
+    animation-duration: 11s;
+    animation-delay: -4s;
+    background-image: radial-gradient(circle, #eafbfc 0%, #59b5bb 30%, transparent 100%);
+  }
+}
+
+@keyframes blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes intro-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orb-drift-moody {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(22px, -16px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes orb-drift-radiant {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  33% {
+    transform: translate(-16px, 12px) scale(1.12);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(14px, -12px) scale(0.94);
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .intro-in,
+  .intro-in-nav {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .btn-animated,
+  .btn-animated::after {
+    transition: none;
+  }
+  .blinking-cursor {
+    animation: none;
+  }
+  .hero-orb {
+    animation: none;
+  }
+}
